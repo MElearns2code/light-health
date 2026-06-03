@@ -2,9 +2,9 @@ type FlagType = 'red' | 'amber' | 'green';
 type Confidence = 'low' | 'medium' | 'high';
 
 const FLAG_STYLES: Record<FlagType, { dot: string; bg: string; text: string; label: string }> = {
-  red:   { dot: 'bg-red-500',    bg: 'bg-red-50',    text: 'text-red-700',    label: 'Act now' },
-  amber: { dot: 'bg-amber-400',  bg: 'bg-amber-50',  text: 'text-amber-700',  label: 'Early warning' },
-  green: { dot: 'bg-emerald-500', bg: 'bg-emerald-50', text: 'text-emerald-700', label: 'Healthy' },
+  red:   { dot: 'bg-red-500',    bg: 'bg-red-900',    text: 'text-red-300',    label: 'Act now' },
+  amber: { dot: 'bg-amber-400',  bg: 'bg-amber-900',  text: 'text-amber-300',  label: 'Early warning' },
+  green: { dot: 'bg-emerald-500', bg: 'bg-emerald-900', text: 'text-emerald-300', label: 'Healthy' },
 };
 
 const CONFIDENCE_LABELS: Record<Confidence, string> = {
@@ -25,9 +25,9 @@ export function FlagPill({ type }: { type: FlagType }) {
 
 export function ConfidencePill({ level }: { level: Confidence }) {
   const colors: Record<Confidence, string> = {
-    high: 'bg-indigo-50 text-indigo-600',
-    medium: 'bg-gray-100 text-gray-600',
-    low: 'bg-gray-50 text-gray-400',
+    high: 'bg-blue-900 text-blue-300',
+    medium: 'bg-gray-700 text-gray-300',
+    low: 'bg-gray-700 text-gray-400',
   };
   return (
     <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${colors[level]}`}>
@@ -37,14 +37,14 @@ export function ConfidencePill({ level }: { level: Confidence }) {
 }
 
 export function RenewalBadge({ days }: { days: number }) {
-  if (days < 0) return <span className="text-xs text-gray-400">Expired</span>;
+  if (days < 0) return <span className="text-xs text-gray-500">Expired</span>;
   const urgent = days <= 30;
   const warning = days <= 60;
   return (
     <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
-      urgent ? 'bg-red-50 text-red-600' :
-      warning ? 'bg-amber-50 text-amber-600' :
-      'bg-gray-100 text-gray-500'
+      urgent ? 'bg-red-900 text-red-300' :
+      warning ? 'bg-amber-900 text-amber-300' :
+      'bg-gray-700 text-gray-400'
     }`}>
       {days === 0 ? 'Today' : `${days}d`}
     </span>

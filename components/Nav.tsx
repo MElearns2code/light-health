@@ -15,13 +15,13 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <header className="sticky top-0 z-50 bg-gray-900 border-b border-gray-800 shadow-lg">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-6">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-md bg-indigo-600 flex items-center justify-center">
+          <div className="w-7 h-7 rounded-md bg-blue-500 flex items-center justify-center">
             <span className="text-white text-xs font-bold">L</span>
           </div>
-          <span className="font-semibold text-gray-900 text-sm tracking-tight">Light Health</span>
+          <span className="font-semibold text-white text-sm tracking-tight">Light Health</span>
         </div>
 
         <nav className="flex items-center gap-1">
@@ -33,13 +33,13 @@ export default function Nav() {
                 href={link.href}
                 className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
                   active
-                    ? 'bg-indigo-50 text-indigo-700'
-                    : 'text-gray-500 hover:text-gray-800 hover:bg-gray-100'
+                    ? 'bg-blue-500 bg-opacity-20 text-blue-300'
+                    : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800'
                 }`}
               >
                 {link.label}
                 {link.href === '/integrations' && (
-                  <span className="ml-1.5 text-xs bg-gray-100 text-gray-400 px-1.5 py-0.5 rounded-full">soon</span>
+                  <span className="ml-1.5 text-xs bg-gray-700 text-gray-400 px-1.5 py-0.5 rounded-full">soon</span>
                 )}
               </Link>
             );
